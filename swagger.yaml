@@ -12,7 +12,7 @@ servers:
     description: Servidor principal de la API de barreras
     variables:
       baseURL:
-        default: api.ejemplo.com
+        default: parquimetro-staging.herokuapp.com
         description: Host base de la API (sin `/api`).
 
 components:
