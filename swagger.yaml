@@ -22,11 +22,6 @@ components:
       in: header
       name: API-KEY
       description: API key de autenticación.
-    BarrierTokenAuth:
-      type: apiKey
-      in: header
-      name: token
-      description: Token de sesión de la barrera.
 
   schemas:
     LoginResponse:
@@ -71,6 +66,12 @@ components:
           type: integer
         service_category_id:
           type: integer
+
+tags:
+  - name: Operador
+    description: Endpoints for Application 1
+  - name: Barreras
+    description: Endpoints for Application 2
 
 paths:
   /api/crear_contrasena:
@@ -443,7 +444,23 @@ paths:
         '200': { description: OK }
   /api/ingresar:
     post:
-      summary: Login
+      tags:
+        - Operador
+      summary: Login Operador
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
       responses:
         '200': { description: OK }
   /api/ingresar/sso:
@@ -1767,6 +1784,8 @@ paths:
         '200': { description: OK }
   /api/barreras/ingresar:
     post:
+      tags:
+        - Barreras
       summary: Barrier login
       responses:
         '200': { description: OK }
