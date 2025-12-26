@@ -73,692 +73,2466 @@ components:
           type: integer
 
 paths:
+  /api/crear_contrasena:
+    post:
+      summary: Create password
+      responses:
+        '200': { description: OK }
+  /api/crear_contrasena/{id}:
+    get:
+      summary: Edit password
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update password
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update password
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/descuentos:
+    get:
+      summary: List discounts
+      responses:
+        '200': { description: OK }
+  /api/descuentos/generar:
+    post:
+      summary: Generate discount codes
+      responses:
+        '200': { description: OK }
+  /api/reportar_escape:
+    post:
+      summary: Report escape
+      responses:
+        '200': { description: OK }
+  /api/patentes_pendientes:
+    get:
+      summary: List pending licenses
+      responses:
+        '200': { description: OK }
+  /api/mensajes:
+    post:
+      summary: Send message
+      responses:
+        '200': { description: OK }
+  /api/transactions:
+    get:
+      summary: List transactions
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create external transaction
+      responses:
+        '200': { description: OK }
+  /api/vehiculos:
+    get:
+      summary: List vehicles
+      responses:
+        '200': { description: OK }
+  /api/vehiculos/{id}:
+    get:
+      summary: Show vehicle
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/users/{id}:
+    get:
+      summary: Show user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/boletas:
+    post:
+      summary: Create billing receipt
+      responses:
+        '200': { description: OK }
+  /api/prepago:
+    get:
+      summary: List prepaid plans
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create prepaid plan
+      responses:
+        '200': { description: OK }
+  /api/prepago/{id}:
+    get:
+      summary: Show prepaid plan
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update prepaid plan
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update prepaid plan
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete prepaid plan
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/v2/suscripcion:
+    post:
+      summary: Create prepaid plan subscription (v2 path)
+      responses:
+        '200': { description: OK }
+  /api/suscripcion:
+    post:
+      summary: Create prepaid plan subscription
+      responses:
+        '200': { description: OK }
+  /api/suscripcion/ticket_visitas:
+    post:
+      summary: Create visit ticket for subscription
+      responses:
+        '200': { description: OK }
+  /api/suscripcion/renovar:
+    post:
+      summary: Renew prepaid plan subscription
+      responses:
+        '200': { description: OK }
+  /api/obtener_suscripcion_activa_renovable:
+    post:
+      summary: Fetch active renewable subscription
+      responses:
+        '200': { description: OK }
+  /api/servicios_solicitados:
+    post:
+      summary: Request service
+      responses:
+        '200': { description: OK }
+  /api/servicios_solicitados/accesos_pagados:
+    post:
+      summary: Create paid access service
+      responses:
+        '200': { description: OK }
+  /api/servicios:
+    get:
+      summary: List services
+      responses:
+        '200': { description: OK }
+  /api/confirmar_reembolso:
+    post:
+      summary: Confirm reimbursement
+      responses:
+        '200': { description: OK }
+  /api/iniciar_reembolso:
+    post:
+      summary: Start reimbursement
+      responses:
+        '200': { description: OK }
+  /api/hora:
+    get:
+      summary: Current time
+      responses:
+        '200': { description: OK }
+  /api/fallos:
+    post:
+      summary: Report failed request
+      responses:
+        '200': { description: OK }
+  /api/contacto:
+    post:
+      summary: Submit contact request
+      responses:
+        '200': { description: OK }
+  /api/clientes/{rut}:
+    get:
+      summary: Show client by RUT
+      parameters:
+        - in: path
+          name: rut
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/terminales/{terminalId}/logs:
+    post:
+      summary: Create terminal log
+      parameters:
+        - in: path
+          name: terminalId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update terminal log
+      parameters:
+        - in: path
+          name: terminalId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update terminal log
+      parameters:
+        - in: path
+          name: terminalId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/terminales/ubicacion:
+    post:
+      summary: Update terminal location
+      responses:
+        '200': { description: OK }
+  /api/acceso_peatonal/ingreso:
+    post:
+      summary: Pedestrian access entry
+      responses:
+        '200': { description: OK }
+  /api/acceso_peatonal/salida:
+    post:
+      summary: Pedestrian access exit
+      responses:
+        '200': { description: OK }
+  /api/acceso_peatonal:
+    get:
+      summary: List pedestrian accesses
+      responses:
+        '200': { description: OK }
+  /api/vehiculos/ingreso:
+    post:
+      summary: Vehicle entry
+      responses:
+        '200': { description: OK }
+  /api/vehiculos/salida:
+    post:
+      summary: Vehicle exit
+      responses:
+        '200': { description: OK }
+  /api/vehiculos/ingreso_rapido:
+    post:
+      summary: Fast entry
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update fast entry
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update fast entry
+      responses:
+        '200': { description: OK }
+  /api/vehiculos/tickets_liberados:
+    post:
+      summary: Create liberated ticket
+      responses:
+        '200': { description: OK }
+  /api/pagos/estado:
+    get:
+      summary: Payment status
+      responses:
+        '200': { description: OK }
+  /api/pagos/habilitar:
+    post:
+      summary: Enable payments
+      responses:
+        '200': { description: OK }
+  /api/pagos/inhabilitar:
+    post:
+      summary: Disable payments
+      responses:
+        '200': { description: OK }
+  /api/pagos:
+    post:
+      summary: Create payment
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/aplicar_descuento:
+    post:
+      summary: Apply discount to payment
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{offlineUniqueId}/voucher:
+    post:
+      summary: Generate payment voucher
+      parameters:
+        - in: path
+          name: offlineUniqueId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pendiente/{licensePlate}:
+    get:
+      summary: Show pending ticket by license plate
+      parameters:
+        - in: path
+          name: licensePlate
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create pending ticket by license plate
+      parameters:
+        - in: path
+          name: licensePlate
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/vehiculos/buscar/{query}:
+    get:
+      summary: Search vehicles
+      parameters:
+        - in: path
+          name: query
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pending_transactions:
+    get:
+      summary: List pending transactions
+      responses:
+        '200': { description: OK }
+  /api/ingresar:
+    post:
+      summary: Login
+      responses:
+        '200': { description: OK }
+  /api/ingresar/sso:
+    post:
+      summary: Login via SSO
+      responses:
+        '200': { description: OK }
+  /api/salir:
+    delete:
+      summary: Logout
+      responses:
+        '200': { description: OK }
+  /api/reportes/patentes_activas:
+    get:
+      summary: Active license plate report
+      responses:
+        '200': { description: OK }
+  /api/reportes/recaudacion:
+    get:
+      summary: Collections report
+      responses:
+        '200': { description: OK }
+  /api/reportes/otros_pagos:
+    get:
+      summary: Other payments report
+      responses:
+        '200': { description: OK }
+  /api/reportes/patentes_pendientes:
+    get:
+      summary: Pending license plate report
+      responses:
+        '200': { description: OK }
+  /api/ticket_impreso:
+    put:
+      summary: Mark ticket as printed
+      responses:
+        '200': { description: OK }
+  /api/v2/descuentos:
+    get:
+      summary: List discounts (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/ingreso:
+    post:
+      summary: Vehicle entry (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/salida:
+    post:
+      summary: Vehicle exit (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/salida_qr:
+    post:
+      summary: Start QR exit (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/salida_qr/finalizar:
+    post:
+      summary: Finish QR exit (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/pago_rechazado:
+    post:
+      summary: Notify rejected payment (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/salida_con_pago_entrada:
+    post:
+      summary: Exit with entry payment (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos/reimprimir_ticket:
+    post:
+      summary: Reprint exit ticket (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/vehiculos:
+    get:
+      summary: List vehicles (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/pagos/estado:
+    get:
+      summary: Payment status (v2)
+      responses:
+        '200': { description: OK }
+  /api/v2/pagos/{paymentId}/aplicar_descuento:
+    post:
+      summary: Apply discount to payment (v2)
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/v2/prepago:
+    get:
+      summary: List prepaid plans (v2)
+      responses:
+        '200': { description: OK }
+  /api/v3/vehiculos/salida_qr:
+    post:
+      summary: Start QR exit (v3 proxy to v2)
+      responses:
+        '200': { description: OK }
+  /api/v3/vehiculos/salida_qr/finalizar:
+    post:
+      summary: Finish QR exit (v3 proxy to v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/informacion_de_cuenta:
+    get:
+      summary: Self-service account info
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/ingreso:
+    post:
+      summary: Self-service vehicle entry
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/sucursales:
+    get:
+      summary: List self-service branches (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/favoritos:
+    get:
+      summary: List favorites (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/medios_de_pago:
+    get:
+      summary: List payment methods (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/transacciones:
+    get:
+      summary: List transactions (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/transacciones/estado:
+    get:
+      summary: Transaction status (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/transacciones/pagar:
+    post:
+      summary: Pay transaction (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/transacciones/revalidar:
+    post:
+      summary: Revalidate payment (v2)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/v2/transacciones/pagos/{id}/exito:
+    get:
+      summary: Payment success callback (v2)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/recuperar_contrasena:
+    post:
+      summary: Recover password request
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/recuperar_contrasena/{id}/edit:
+    get:
+      summary: Edit password recovery
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/recuperar_contrasena/{id}:
+    put:
+      summary: Update password via recovery
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update password via recovery
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/registrar:
+    post:
+      summary: Register user
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/ingresar:
+    post:
+      summary: Login (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/ingreso_firebase:
+    post:
+      summary: Firebase login
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/migracion:
+    post:
+      summary: Migrate account
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/oauth/{provider}:
+    post:
+      summary: OAuth login
+      parameters:
+        - in: path
+          name: provider
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/notificaciones/registrar_dispositivo:
+    post:
+      summary: Register notification device
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones/pagar:
+    get:
+      summary: List payments for transactions
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create transaction payment
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/servicios:
+    get:
+      summary: List services (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales:
+    get:
+      summary: List branches (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales/{branchId}/servicios:
+    get:
+      summary: List services for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales/{branchId}/oficinas:
+    get:
+      summary: List offices for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales/{branchId}/oficinas/{id}/horarios:
+    get:
+      summary: Available schedules for office
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales/{branchId}/tarifas:
+    get:
+      summary: Branch rates
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/medios_de_pago:
+    get:
+      summary: List payment methods (self-service)
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create payment method
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/medios_de_pago/{id}:
+    put:
+      summary: Update payment method
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update payment method
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete payment method
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/medios_de_pago/monedero_virtual:
+    post:
+      summary: Update wallet
+      responses:
+        '200': { description: OK }
+    get:
+      summary: Show wallet
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/perfil:
+    get:
+      summary: Show profile
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update profile
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update profile
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/perfil/eliminar:
+    delete:
+      summary: Delete profile
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/perfil/imagen:
+    post:
+      summary: Upload profile image
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones:
+    get:
+      summary: List transactions (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones/estado:
+    get:
+      summary: Transaction status (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones/estimacion:
+    post:
+      summary: Estimate transaction
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones/{transactionId}/salida:
+    post:
+      summary: Create transaction exit
+      parameters:
+        - in: path
+          name: transactionId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones/{transactionId}/evaluaciones:
+    post:
+      summary: Create transaction rating
+      parameters:
+        - in: path
+          name: transactionId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/transacciones/{transactionId}/aplicar_descuento:
+    post:
+      summary: Apply discount to transaction
+      parameters:
+        - in: path
+          name: transactionId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/vehiculos:
+    get:
+      summary: List vehicles (self-service)
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create vehicle (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/vehiculos/{id}:
+    put:
+      summary: Update vehicle (self-service)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update vehicle (self-service)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete vehicle (self-service)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/vehiculos/{id}/activar:
+    post:
+      summary: Activate vehicle (self-service)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/ingreso:
+    post:
+      summary: Log vehicle entry (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/suscripciones:
+    get:
+      summary: List subscriptions (self-service)
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create subscription (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/suscripciones/{id}:
+    get:
+      summary: Show subscription (self-service)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales/{branchId}/suscripciones:
+    get:
+      summary: List subscriptions for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/suscripciones/{subscriptionId}/renovar:
+    post:
+      summary: Renew subscription by id
+      parameters:
+        - in: path
+          name: subscriptionId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/sucursales/{branchId}/suscripciones/activas:
+    get:
+      summary: Active subscriptions for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/suscripcion:
+    get:
+      summary: List subscriptions (alternate path)
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create subscription (alternate path)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/prepago/{branchId}:
+    get:
+      summary: List prepaid plans for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/favoritos:
+    get:
+      summary: List favorites (self-service)
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Add favorite branch
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/favoritos/{branchId}:
+    delete:
+      summary: Remove favorite branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/invitaciones:
+    get:
+      summary: List invitations
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create invitation
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete invitation
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/reservas:
+    get:
+      summary: List reservations
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create reservation
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Cancel reservation
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update reservation
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update reservation
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/calzas/{parkingSpotId}/reservar:
+    post:
+      summary: Reserve parking spot by id
+      parameters:
+        - in: path
+          name: parkingSpotId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/calzas:
+    get:
+      summary: List parking spots
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/cargas_monedero:
+    get:
+      summary: List wallet payments
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/servicios_solicitados:
+    post:
+      summary: Request service (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/servicios_solicitados/en_curso:
+    get:
+      summary: Current services (self-service)
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/saldos_pendientes:
+    get:
+      summary: List vehicle balances
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/saldos_pendientes/pagar:
+    post:
+      summary: Pay vehicle balances
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/reservas_de_oficina:
+    get:
+      summary: List office reservations
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create office reservation
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete office reservation
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/suscripciones_activas:
+    get:
+      summary: Active subscriptions
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/grupos_de_calzas:
+    get:
+      summary: List parking spot groups
+      responses:
+        '200': { description: OK }
+  /api/supervisores/ingresar:
+    post:
+      summary: Supervisor login
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}:
+    get:
+      summary: Show dashboard for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}/vehiculos_ingresados:
+    get:
+      summary: Vehicles entered for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}/vehiculos_ingresados/transacciones:
+    get:
+      summary: Transactions for entered vehicles (branch)
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}/vehiculos_sacados:
+    get:
+      summary: Vehicles exited for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}/vehiculos_sacados/transacciones:
+    get:
+      summary: Transactions for exited vehicles (branch)
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}/vehiculos_pendientes:
+    get:
+      summary: Pending vehicles for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/sucursales/{branchId}/vehiculos_pendientes/transacciones:
+    get:
+      summary: Transactions for pending vehicles (branch)
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}:
+    get:
+      summary: Show dashboard for operator
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}/vehiculos_ingresados:
+    get:
+      summary: Vehicles entered for operator
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}/vehiculos_ingresados/transacciones:
+    get:
+      summary: Transactions for entered vehicles (operator)
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}/vehiculos_sacados:
+    get:
+      summary: Vehicles exited for operator
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}/vehiculos_sacados/transacciones:
+    get:
+      summary: Transactions for exited vehicles (operator)
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}/vehiculos_pendientes:
+    get:
+      summary: Pending vehicles for operator
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/operadores/{operatorId}/vehiculos_pendientes/transacciones:
+    get:
+      summary: Transactions for pending vehicles (operator)
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas:
+    get:
+      summary: List dashboard zones
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas/{zoneId}/vehiculos_ingresados:
+    get:
+      summary: Vehicles entered for zone
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas/{zoneId}/vehiculos_ingresados/transacciones:
+    get:
+      summary: Transactions for entered vehicles (zone)
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas/{zoneId}/vehiculos_sacados:
+    get:
+      summary: Vehicles exited for zone
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas/{zoneId}/vehiculos_sacados/transacciones:
+    get:
+      summary: Transactions for exited vehicles (zone)
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas/{zoneId}/vehiculos_pendientes:
+    get:
+      summary: Pending vehicles for zone
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/dashboards/zonas/{zoneId}/vehiculos_pendientes/transacciones:
+    get:
+      summary: Transactions for pending vehicles (zone)
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/sucursales:
+    get:
+      summary: List supervisor branches
+      responses:
+        '200': { description: OK }
+  /api/supervisores/sucursales/{branchId}/vehiculos_pendientes:
+    get:
+      summary: Pending transactions for branch
+      parameters:
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/reportes_de_escape:
+    get:
+      summary: List escape reports
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create escape report
+      responses:
+        '200': { description: OK }
+  /api/supervisores/reportes_de_escape/filtrar/{status}:
+    get:
+      summary: Filter escape reports by status
+      parameters:
+        - in: path
+          name: status
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/reportes_de_escape/{id}:
+    get:
+      summary: Show escape report
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update escape report
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update escape report
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete escape report
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/reporte_de_supervisor:
+    post:
+      summary: Create supervisor report
+      responses:
+        '200': { description: OK }
+  /api/supervisores/operadores:
+    get:
+      summary: List operators
+      responses:
+        '200': { description: OK }
+  /api/supervisores/operadores/{operatorId}/vehiculos_pendientes:
+    get:
+      summary: Pending transactions for operator
+      parameters:
+        - in: path
+          name: operatorId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/zonas:
+    get:
+      summary: List zones
+      responses:
+        '200': { description: OK }
+  /api/supervisores/zonas/{zoneId}/sucursales:
+    get:
+      summary: List branches for zone
+      parameters:
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/recaudacion:
+    get:
+      summary: List incomes
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create income
+      responses:
+        '200': { description: OK }
+  /api/supervisores/recaudacion/{id}:
+    get:
+      summary: Show income
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/supervisores/perfil:
+    get:
+      summary: List profiles
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create profile
+      responses:
+        '200': { description: OK }
+  /api/supervisores/retiros/reporte:
+    get:
+      summary: Withdrawal report
+      responses:
+        '200': { description: OK }
+  /api/neural/ingresar:
+    post:
+      summary: Neural entry endpoint
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/pagos/success/{paymentId}:
+    get:
+      summary: Self-service payment success
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/pagos/{paymentId}/success:
+    get:
+      summary: Service contract payment success
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/auto_atencion/pagos/{paymentId}/vehicle_balances/success:
+    get:
+      summary: Vehicle balance payment success
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/oneclick_init_inscription:
+    get:
+      summary: Init Oneclick inscription
+      responses:
+        '200': { description: OK }
+  /api/pagos/oneclick_finish_inscription:
+    post:
+      summary: Finish Oneclick inscription
+      responses:
+        '200': { description: OK }
+  /api/pagos/oneclick_authorizepayment:
+    post:
+      summary: Authorize Oneclick payment
+      responses:
+        '200': { description: OK }
+  /api/pagos/oneclick_remove_user:
+    post:
+      summary: Remove Oneclick user
+      responses:
+        '200': { description: OK }
+  /api/pagos/finish_webpay/{paymentId}:
+    post:
+      summary: Finish Webpay transaction
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/check_webpay/{paymentId}:
+    post:
+      summary: Check Webpay transaction
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/init_webpay/{paymentId}:
+    get:
+      summary: Init Webpay transaction
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/success/{paymentId}:
+    get:
+      summary: Webpay success callback
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/prepaid_plans/{prepaidPlanId}/finish_webpay:
+    post:
+      summary: Finish prepaid plan Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: prepaidPlanId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/prepaid_plans/check_webpay:
+    post:
+      summary: Check prepaid plan Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/prepaid_plans/{prepaidPlanId}/init_webpay:
+    get:
+      summary: Init prepaid plan Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: prepaidPlanId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/prepaid_plans/success:
+    get:
+      summary: Prepaid plan Webpay success
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/service_contracts/{serviceContractId}/finish_webpay:
+    post:
+      summary: Finish service contract Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: serviceContractId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/service_contracts/check_webpay:
+    post:
+      summary: Check service contract Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/service_contracts/{serviceContractId}/init_webpay:
+    get:
+      summary: Init service contract Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: serviceContractId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/service_contracts/success:
+    get:
+      summary: Service contract Webpay success
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/vehicle_balances/finish_webpay:
+    post:
+      summary: Finish vehicle balance Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/vehicle_balances/check_webpay:
+    post:
+      summary: Check vehicle balance Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/vehicle_balances/init_webpay:
+    get:
+      summary: Init vehicle balance Webpay
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/{paymentId}/vehicle_balances/success:
+    get:
+      summary: Vehicle balance Webpay success
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/clientes/{clientId}/registro/one_click:
+    get:
+      summary: List Oneclick registrations
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create Oneclick registration
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/clientes/{clientId}/registro/one_click/fracaso:
+    get:
+      summary: Oneclick registration failure callback
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/clientes/{clientId}/registro/one_click/exito:
+    get:
+      summary: Oneclick registration success callback
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/clientes/{clientId}/registro/one_click/finalizar:
+    get:
+      summary: Finalize Oneclick registration (GET)
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Finalize Oneclick registration (POST)
+      parameters:
+        - in: path
+          name: clientId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/monedero_virtual:
+    get:
+      summary: Wallet details
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create wallet payment
+      responses:
+        '200': { description: OK }
+  /api/pagos/monedero_virtual/iniciar_pago:
+    get:
+      summary: Init wallet payment
+      responses:
+        '200': { description: OK }
+  /api/pagos/monedero_virtual/finalizar_pago/{paymentId}:
+    post:
+      summary: Finish wallet payment
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pagos/monedero_virtual/revisar_pago/{paymentId}:
+    post:
+      summary: Check wallet payment
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
   /api/barreras/ingresar:
     post:
-      tags: [Autenticación]
-      summary: Login de barrera
-      description: Inicia sesión de la barrera y obtiene un token de acceso (`barrierToken`).
-      security:
-        - ApiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - serial_number
-                - app_version
-              properties:
-                serial_number:
-                  type: string
-                  description: Número de serie de la barrera.
-                app_version:
-                  type: string
-                  description: Versión de la aplicación de la barrera.
+      summary: Barrier login
       responses:
-        '200':
-          description: Login exitoso.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LoginResponse'
-
-  /api/barreras/estado:
-    post:
-      tags: [Estado]
-      summary: Reportar estado de la barrera
-      description: Envía el estado de la barrera (keep-alive, conexión, etc.).
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - status_type
-                - status
-              properties:
-                status_type:
-                  type: string
-                  example: connection_status
-                status:
-                  type: string
-                  example: ok
-                description:
-                  type: string
-                  example: Keep Alive
-                barrier_timestamp:
-                  type: string
-                  description: Fecha y hora reportada por la barrera.
+        '200': { description: OK }
+  /api/barreras/publicidad:
+    get:
+      summary: List advertisements for barrier
       responses:
-        '200':
-          description: Estado recibido correctamente.
-
-  /api/barreras/pago_especial:
-    post:
-      tags: [Pagos]
-      summary: Pago especial
-      description: |
-        Crea o actualiza un pago especial asociado a una transacción.
-        (En Postman se usa como "Inicio Pago" y "Terminar Pago".)
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - transaction_id
-              properties:
-                transaction_id:
-                  type: string
-                  description: ID de la transacción asociada.
-                coupon:
-                  type: string
-                  nullable: true
-                  description: Código de cupón (opcional).
-      responses:
-        '200':
-          description: Operación de pago especial procesada.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaymentResponse'
-
+        '200': { description: OK }
   /api/barreras/ingreso_rapido:
     post:
-      tags: [Ingresos]
-      summary: Ingreso rápido por patente
-      description: Crea una transacción de ingreso rápido usando la patente.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - license_plate
-              properties:
-                license_plate:
-                  type: string
-                  example: HH-HH-66
-                entry_date:
-                  type: string
-                  nullable: true
-                  description: Fecha de entrada (opcional).
+      summary: Fast entry from barrier
       responses:
-        '200':
-          description: Ingreso registrado correctamente.
-
-  /api/barreras/check_rfid:
-    post:
-      tags: [Ingresos]
-      summary: Check-in por RFID
-      description: Valida un RFID y registra ingreso si corresponde.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - rfid_serial
-              properties:
-                rfid_serial:
-                  type: string
-                  example: "286240"
-                entry_date:
-                  type: string
-                  nullable: true
-      responses:
-        '200':
-          description: RFID procesado.
-
-  /api/barreras/ingreso_reserva:
-    post:
-      tags: [Ingresos]
-      summary: Ingreso por reserva
-      description: Registra el ingreso usando un ID de reserva.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - reservation_id
-              properties:
-                reservation_id:
-                  type: string
-                  example: "1206"
-                entry_date:
-                  type: string
-                  nullable: true
-      responses:
-        '200':
-          description: Ingreso por reserva registrado.
-
-  /api/barreras/paybox/pagos:
-    post:
-      tags: [Paybox]
-      summary: Pago en Paybox
-      description: Registra un pago realizado en un Paybox.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - payment_method
-                - amount
-                - transbank_voucher
-                - payment_date
-              properties:
-                payment_method:
-                  type: string
-                  example: card
-                amount:
-                  type: string
-                  example: "200"
-                transbank_voucher:
-                  type: string
-                  example: "1234"
-                payment_date:
-                  type: string
-                  example: "15-4-2025 13:09"
-      responses:
-        '200':
-          description: Pago registrado.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaymentResponse'
-
-  /api/barreras/terminar_salida:
-    post:
-      tags: [Salidas]
-      summary: Terminar salida
-      description: Finaliza la salida de una transacción ya pagada.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - transaction_id
-              properties:
-                transaction_id:
-                  type: string
-                  description: ID de la transacción asociada.
-                cash_change:
-                  type: string
-                  nullable: true
-                payment_id:
-                  type: string
-                  nullable: true
-                payment_date:
-                  type: string
-                  nullable: true
-      responses:
-        '200':
-          description: Salida finalizada correctamente.
-
-  /api/barreras/estado/{transaction_id}:
-    patch:
-      tags: [Estado]
-      summary: Actualizar estado de transacción
-      description: Actualiza el estado de una transacción específica.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      parameters:
-        - name: transaction_id
-          in: path
-          required: true
-          schema:
-            type: string
-          description: ID de la transacción cuyo estado se actualiza.
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                cash_change:
-                  type: string
-                payment_id:
-                  type: string
-                payment_date:
-                  type: string
-                license_plate:
-                  type: string
-                  example: XD-XX-94
-                offline_unique_id:
-                  type: string
-                  example: unidbkno6
-                exit_date:
-                  type: string
-                  example: "7/2/2024"
-      responses:
-        '200':
-          description: Estado actualizado.
-
-  /api/barreras/estado_patente:
+        '200': { description: OK }
+  /api/barreras/estado/{id}:
     put:
-      tags: [Estado]
-      summary: Actualizar estado por patente
-      description: Actualiza el estado de una transacción asociada a una patente.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - license_plate
-              properties:
-                transaction_id:
-                  type: string
-                  nullable: true
-                license_plate:
-                  type: string
-                  example: XD-XD-11
+      summary: Update transaction status from barrier
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
       responses:
-        '200':
-          description: Estado de patente actualizado.
-
-  /api/barreras/iniciar_reembolso:
+        '200': { description: OK }
+  /api/barreras/ingreso:
     post:
-      tags: [Reembolsos]
-      summary: Iniciar reembolso
-      description: Inicia el proceso de reembolso de un pago.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - payment_id
-              properties:
-                payment_id:
-                  type: string
-                  description: ID del pago a reembolsar.
+      summary: Vehicle entry from barrier
       responses:
-        '200':
-          description: Reembolso iniciado.
-
-  /api/barreras/salida_patente:
-    post:
-      tags: [Salidas]
-      summary: Registrar salida por patente
-      description: Registra la salida de un vehículo por patente.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - license_plate
-              properties:
-                license_plate:
-                  type: string
-                  example: XD-XX-94
-      responses:
-        '200':
-          description: Salida registrada.
-
-  /api/barreras/confirmar_reembolso:
-    post:
-      tags: [Reembolsos]
-      summary: Confirmar reembolso
-      description: Confirma un reembolso previamente iniciado.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - payment_id
-              properties:
-                payment_id:
-                  type: string
-      responses:
-        '200':
-          description: Reembolso confirmado.
-
-  /api/barreras/estado_cashdro:
-    post:
-      tags: [Cashdro]
-      summary: Reportar estado de Cashdro
-      description: Envía los estados de niveles de efectivo del equipo Cashdro.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                cash_statuses:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/CashStatus'
-      responses:
-        '200':
-          description: Estado de Cashdro recibido.
-
-  /api/barreras/servicios_solicitados:
-    post:
-      tags: [Servicios]
-      summary: Compra de servicios en tótem
-      description: Registra servicios solicitados en el tótem.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                services:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/ServiceItem'
-      responses:
-        '200':
-          description: Servicios registrados.
-
-  /api/barreras/servicios:
+        '200': { description: OK }
+  /api/barreras/reporte:
     get:
-      tags: [Servicios]
-      summary: Obtener servicios disponibles
-      description: Devuelve la lista de servicios disponibles.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
+      summary: Barrier report
       responses:
-        '200':
-          description: Lista de servicios.
-
-  /api/barreras/ingreso_patente:
+        '200': { description: OK }
+  /api/barreras/reporte_transbank:
     post:
-      tags: [Ingresos]
-      summary: Ingreso por patente (LPR)
-      description: Registra ingreso usando patente detectada por LPR.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - license_plate
-                - lpr_unique_id
-              properties:
-                license_plate:
-                  type: string
-                  example: AA-AA-56
-                lpr_unique_id:
-                  type: string
-                  example: "1122122"
+      summary: Submit Transbank POS report
       responses:
-        '200':
-          description: Ingreso registrado.
-
+        '200': { description: OK }
+  /api/barreras/control_acceso:
+    post:
+      summary: Create client access
+      responses:
+        '200': { description: OK }
+  /api/barreras/control_acceso/ingresar:
+    post:
+      summary: Client access entry
+      responses:
+        '200': { description: OK }
+  /api/barreras/control_acceso/salir:
+    post:
+      summary: Client access exit
+      responses:
+        '200': { description: OK }
+  /api/barreras/control_acceso/ticket_estacionamiento:
+    post:
+      summary: Ticket parking access
+      responses:
+        '200': { description: OK }
+  /api/barreras/usuarios_autorizados:
+    get:
+      summary: List authorized users
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create authorized user
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update authorized users
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete authorized users
+      responses:
+        '200': { description: OK }
+  /api/barreras/sincronizar_usuarios:
+    post:
+      summary: Synchronize users
+      responses:
+        '200': { description: OK }
+  /api/barreras/sincronizar_usuarios_admin:
+    post:
+      summary: Synchronize users from admin
+      responses:
+        '200': { description: OK }
   /api/barreras/sucursal:
     get:
-      tags: [Sucursal]
-      summary: Obtener sucursal de la barrera
-      description: Devuelve la sucursal asociada a la barrera.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
+      summary: Show branch for barrier
       responses:
-        '200':
-          description: Información de la sucursal.
+        '200': { description: OK }
+  /api/barreras/mensajes:
     post:
-      tags: [Sucursal]
-      summary: Operación sobre sucursal / liberados
-      description: |
-        Operaciones POST asociadas a la sucursal (en Postman se usa como "Liberados"
-        y otras operaciones relacionadas).
+      summary: Create barrier message
       responses:
-        '200':
-          description: Operación procesada.
-
-  /api/barreras/v2/pagos/{payment_id}/aplicar_descuento:
+        '200': { description: OK }
+  /api/barreras/iniciar_salida:
     post:
-      tags: [Pagos]
-      summary: Aplicar descuento a pago
-      description: Aplica un descuento a un pago existente.
+      summary: Start exit process
+      responses:
+        '200': { description: OK }
+  /api/barreras/terminar_salida:
+    post:
+      summary: Finish exit process
+      responses:
+        '200': { description: OK }
+  /api/barreras/reimprimir_ticket:
+    post:
+      summary: Reprint ticket
+      responses:
+        '200': { description: OK }
+  /api/barreras/pago_especial:
+    post:
+      summary: Special payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/descuento_transaccion:
+    post:
+      summary: Apply discount from barrier
+      responses:
+        '200': { description: OK }
+  /api/barreras/check_rfid:
+    post:
+      summary: Check RFID card
+      responses:
+        '200': { description: OK }
+  /api/barreras/tarjetas_rfid/iniciar_pago:
+    post:
+      summary: Init RFID payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/tarjetas_rfid/finalizar_pago:
+    post:
+      summary: Finish RFID payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/tarjetas_rfid:
+    get:
+      summary: List RFID cards
+      responses:
+        '200': { description: OK }
+  /api/barreras/lpr:
+    get:
+      summary: Show LPR device for barrier
+      responses:
+        '200': { description: OK }
+  /api/barreras/ingreso_patente:
+    post:
+      summary: Entry by license plate
+      responses:
+        '200': { description: OK }
+  /api/barreras/salida_patente:
+    post:
+      summary: Exit by license plate
+      responses:
+        '200': { description: OK }
+  /api/barreras/transacciones/{id}/actualizar_patente:
+    post:
+      summary: Update transaction license plate
       parameters:
-        - name: payment_id
-          in: path
+        - in: path
+          name: id
           required: true
-          schema:
-            type: string
-          description: ID del pago al que se aplica el descuento.
+          schema: { type: string }
       responses:
-        '200':
-          description: Descuento aplicado.
-
-  /api/barreras/paybox/pagos/iniciar_pago:
+        '200': { description: OK }
+  /api/barreras/transacciones/{id}/historia_patente:
     post:
-      tags: [Paybox]
-      summary: Iniciar pago en Paybox
-      description: Inicia un pago en el Paybox.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - payment_method
-                - amount
-              properties:
-                payment_method:
-                  type: string
-                  example: cash
-                amount:
-                  type: string
-                  example: "200"
-                transbank_voucher:
-                  type: string
-                  nullable: true
-                payment_date:
-                  type: string
-                  nullable: true
+      summary: License plate history
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
       responses:
-        '200':
-          description: Pago iniciado.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaymentResponse'
-
-  /api/barreras/paybox/pagos/actualizar_estado:
+        '200': { description: OK }
+  /api/barreras/ingreso_reserva:
     post:
-      tags: [Paybox]
-      summary: Actualizar estado de pago en Paybox
-      description: Actualiza el estado de un pago en Paybox.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - payment_id
-              properties:
-                payment_method:
-                  type: string
-                  nullable: true
-                amount:
-                  type: string
-                  nullable: true
-                transbank_voucher:
-                  type: string
-                  example: "1234"
-                payment_date:
-                  type: string
-                  nullable: true
-                payment_id:
-                  type: string
-                  example: "93328"
-                payment_status:
-                  type: string
-                  description: Estado del pago.
+      summary: Reservation entry
       responses:
-        '200':
-          description: Estado de pago actualizado.
-
-  /api/barreras/paybox/pagos/finalizar_pago:
+        '200': { description: OK }
+  /api/barreras/salida_reserva:
     post:
-      tags: [Paybox]
-      summary: Finalizar pago en Paybox
-      description: Finaliza un pago en Paybox.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - amount
-                - transbank_voucher
-              properties:
-                payment_method:
-                  type: string
-                  nullable: true
-                amount:
-                  type: string
-                  example: "200"
-                transbank_voucher:
-                  type: string
-                  example: "1234"
-                payment_date:
-                  type: string
-                  nullable: true
-                id:
-                  type: string
-                  nullable: true
+      summary: Reservation exit
       responses:
-        '200':
-          description: Pago finalizado.
-
+        '200': { description: OK }
+  /api/barreras/pago_offline:
+    post:
+      summary: Full offline payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/paybox/pagos:
+    post:
+      summary: Create paybox payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/paybox/pago_rechazado:
+    post:
+      summary: Paybox rejected payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/paybox/token_pago:
+    post:
+      summary: Generate paybox token
+      responses:
+        '200': { description: OK }
+  /api/barreras/paybox/token_pago/revocar:
+    post:
+      summary: Revoke paybox token
+      responses:
+        '200': { description: OK }
+  /api/barreras/paybox/pagos/estado:
+    post:
+      summary: Paybox payment status
+      responses:
+        '200': { description: OK }
+  /api/barreras/estado:
+    post:
+      summary: Create barrier status history
+      responses:
+        '200': { description: OK }
+  /api/barreras/fallos:
+    post:
+      summary: Report barrier failed request
+      responses:
+        '200': { description: OK }
+  /api/barreras/historias/{id}:
+    patch:
+      summary: Update transaction history
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/barreras/liberados:
+    get:
+      summary: List liberated vehicles
+      responses:
+        '200': { description: OK }
+  /api/barreras/rut_liberados:
+    get:
+      summary: List liberated RUTs
+      responses:
+        '200': { description: OK }
+  /api/barreras/suscripciones:
+    get:
+      summary: List barrier subscriptions
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios_solicitados:
+    post:
+      summary: Create service contract from barrier
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update service contract from barrier
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios_solicitados/iniciar_pago:
+    post:
+      summary: Init service contract payment
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios_solicitados/finalizar_pago/{paymentId}:
+    post:
+      summary: Finish service contract payment
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios_solicitados/validar:
+    post:
+      summary: Validate service contract
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios:
+    get:
+      summary: List services (barriers)
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios/servicios_solicitados/utilizar/{paymentId}:
+    put:
+      summary: Mark service contract as used
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/barreras/servicios/servicios_solicitados/pagados/{paymentId}:
+    get:
+      summary: Paid service contracts
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/barreras/pagos/aplicar_descuento:
+    post:
+      summary: Apply discount to payment from barrier
+      responses:
+        '200': { description: OK }
+  /api/barreras/pagos/rechazar:
+    post:
+      summary: Mark payment as failed
+      responses:
+        '200': { description: OK }
+  /api/barreras/pagos/rechazar_offline:
+    post:
+      summary: Mark offline payment as failed
+      responses:
+        '200': { description: OK }
+  /api/barreras/logs:
+    post:
+      summary: Create barrier log
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update barrier log
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update barrier log
+      responses:
+        '200': { description: OK }
+  /api/barreras/estado_cashdro:
+    post:
+      summary: Create cash status
+      responses:
+        '200': { description: OK }
+  /api/barreras/confirmar_reembolso:
+    post:
+      summary: Confirm reimbursement (barrier)
+      responses:
+        '200': { description: OK }
+  /api/barreras/iniciar_reembolso:
+    post:
+      summary: Start reimbursement (barrier)
+      responses:
+        '200': { description: OK }
+  /api/barreras/descuentos:
+    get:
+      summary: List discounts (barrier)
+      responses:
+        '200': { description: OK }
   /api/barreras/amipass/pago:
     post:
-      tags: [Amipass]
-      summary: Pago con Amipass
-      description: Registra un pago usando Amipass.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - client_qr_code
-                - amount
-              properties:
-                client_qr_code:
-                  type: string
-                  example: "71060565"
-                amount:
-                  type: string
-                  example: "100"
+      summary: AmiPass payment
       responses:
-        '200':
-          description: Pago Amipass registrado.
-
+        '200': { description: OK }
   /api/barreras/amipass/anulacion:
     post:
-      tags: [Amipass]
-      summary: Anulación Amipass
-      description: Anula un pago realizado con Amipass.
-      security:
-        - ApiKeyAuth: []
-          BarrierTokenAuth: []
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              required:
-                - client_qr_code
-              properties:
-                client_qr_code:
-                  type: string
-                authorization_code:
-                  type: string
-                  nullable: true
-                payment_id:
-                  type: string
-                  nullable: true
-                amount:
-                  type: string
-                  nullable: true
+      summary: AmiPass annulment
       responses:
-        '200':
-          description: Pago Amipass anulado.
+        '200': { description: OK }
+  /api/dte_box/registrar:
+    post:
+      summary: Register DTE box
+      responses:
+        '200': { description: OK }
+  /api/dte_box/ingresar:
+    post:
+      summary: Login DTE box
+      responses:
+        '200': { description: OK }
+  /api/dte_box/transacciones:
+    post:
+      summary: Create transaction without folio
+      responses:
+        '200': { description: OK }
+  /api/dte_box/transacciones_con_folio:
+    post:
+      summary: Create transaction with folio
+      responses:
+        '200': { description: OK }
+  /api/dte_box/pagos:
+    post:
+      summary: Create payment without folio
+      responses:
+        '200': { description: OK }
+  /api/dte_box/pagos_con_folio:
+    post:
+      summary: Create payment with folio
+      responses:
+        '200': { description: OK }
+  /api/dte_box/reporte:
+    get:
+      summary: DTE box report
+      responses:
+        '200': { description: OK }
+  /api/dte_box/reporte_resumen:
+    post:
+      summary: DTE box summary report
+      responses:
+        '200': { description: OK }
+  /api/dte_box/reporte_de_pagos:
+    post:
+      summary: DTE box payments report
+      responses:
+        '200': { description: OK }
+  /api/dte_box/logs:
+    post:
+      summary: Create DTE box log
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update DTE box log
+      responses:
+        '200': { description: OK }
+  /api/dte_box/estado:
+    post:
+      summary: Create DTE box status history
+      responses:
+        '200': { description: OK }
+  /api/dte_box/fallos:
+    post:
+      summary: Report DTE box failed request
+      responses:
+        '200': { description: OK }
+  /api/rfid_manager/ingresar:
+    post:
+      summary: RFID manager login
+      responses:
+        '200': { description: OK }
+  /api/rfid_manager/salir:
+    delete:
+      summary: RFID manager logout
+      responses:
+        '200': { description: OK }
+  /api/rfid_manager/tarjetas_rfid:
+    get:
+      summary: List RFID cards
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create RFID card
+      responses:
+        '200': { description: OK }
+  /api/rfid_manager/tarjetas_rfid/{id}:
+    put:
+      summary: Update RFID card
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    patch:
+      summary: Partially update RFID card
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    delete:
+      summary: Delete RFID card
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/rfid_manager/tarjetas_rfid/registrar:
+    post:
+      summary: Bulk create RFID cards
+      responses:
+        '200': { description: OK }
+  /api/lpr/registrar:
+    post:
+      summary: Register LPR device
+      responses:
+        '200': { description: OK }
+  /api/lpr/ingresar:
+    post:
+      summary: Login LPR device
+      responses:
+        '200': { description: OK }
+  /api/lpr/fallos:
+    post:
+      summary: Report LPR failed request
+      responses:
+        '200': { description: OK }
+  /api/lpr/registros_lpr:
+    post:
+      summary: Create LPR record
+      responses:
+        '200': { description: OK }
+  /api/lpr/registros_lpr/imagen:
+    post:
+      summary: Upload LPR image
+      responses:
+        '200': { description: OK }
+  /api/lpr/registros_lpr/imagen_perfil:
+    post:
+      summary: Upload LPR profile image
+      responses:
+        '200': { description: OK }
+  /api/lpr:
+    post:
+      summary: Update LPR device
+      responses:
+        '200': { description: OK }
+  /api/lpr/{id}/estado:
+    post:
+      summary: Create LPR status history
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/lpr/{id}/logs:
+    post:
+      summary: Create LPR log
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update LPR log
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/lpr/camaras_de_perfil/{id}/estado:
+    post:
+      summary: Create profile camera status history
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/pantallas_publicidad/registrar:
+    post:
+      summary: Register advertising screen
+      responses:
+        '200': { description: OK }
+  /api/pantallas_publicidad/ingresar:
+    post:
+      summary: Login advertising screen
+      responses:
+        '200': { description: OK }
+  /api/pantallas_publicidad/calzas:
+    get:
+      summary: List parking spots for advertising screen
+      responses:
+        '200': { description: OK }
+  /api/pantallas_publicidad/estado:
+    post:
+      summary: Create advertising screen status history
+      responses:
+        '200': { description: OK }
+  /api/pantallas_publicidad/logs:
+    post:
+      summary: Create advertising screen log
+      responses:
+        '200': { description: OK }
+    put:
+      summary: Update advertising screen log
+      responses:
+        '200': { description: OK }
+  /api/pantallas_publicidad/fallos:
+    post:
+      summary: Report advertising screen failed request
+      responses:
+        '200': { description: OK }
+  /api/sensors:
+    post:
+      summary: Create parking spot sensor event
+      responses:
+        '200': { description: OK }
+  /api/sensors/status:
+    post:
+      summary: Update parking spot sensor status
+      responses:
+        '200': { description: OK }
+  /api/vehicles/alert:
+    post:
+      summary: GPS vehicle alert
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}:
+    put:
+      summary: QA update company
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/branches/{branchId}:
+    put:
+      summary: QA update branch
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/zones/{zoneId}:
+    put:
+      summary: QA update zone
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: zoneId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/transactions/{id}:
+    get:
+      summary: QA show transaction
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/transactions:
+    get:
+      summary: QA list transactions
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/transactions/{id}/status_to_admin_closure:
+    put:
+      summary: QA change transaction status to admin closure
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/payments/{id}:
+    get:
+      summary: QA show payment
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/qa/companies/{companyId}/branches/{branchId}/dynamic_rate:
+    put:
+      summary: QA update dynamic rate
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+    get:
+      summary: QA show dynamic rate
+      parameters:
+        - in: path
+          name: companyId
+          required: true
+          schema: { type: string }
+        - in: path
+          name: branchId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+  /api/rfid_cards:
+    put:
+      summary: Update external RFID cards
+      responses:
+        '200': { description: OK }
+  /api/branches:
+    get:
+      summary: List external branches
+      responses:
+        '200': { description: OK }
+  /api/payments:
+    get:
+      summary: List external payments
+      responses:
+        '200': { description: OK }
+  /api/boleta_elock:
+    get:
+      summary: External Elock billing receipt
+      responses:
+        '200': { description: OK }
+  /api/login:
+    post:
+      summary: External session login
+      responses:
+        '200': { description: OK }
+  /api/transactions/entry:
+    post:
+      summary: External transaction entry
+      responses:
+        '200': { description: OK }
+  /api/transactions/payment:
+    post:
+      summary: External transaction payment
+      responses:
+        '200': { description: OK }
+  /api/transactions/pending:
+    post:
+      summary: External pending transaction
+      responses:
+        '200': { description: OK }
+  /api/send_invoice:
+    get:
+      summary: Send invoice externally
+      responses:
+        '200': { description: OK }
+  /api/webhooks/redpay/pre_authorization:
+    post:
+      summary: Redpay pre-authorization webhook
+      responses:
+        '200': { description: OK }
+ 
