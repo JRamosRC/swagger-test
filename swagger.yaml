@@ -22,14 +22,18 @@ components:
       in: header
       name: API-KEY
       description: API key de autenticación.
-  parameters:
-    Imei:
-      name: imei
+
+    DeviceImei:
+      type: apiKey
       in: header
-      required: true
-      schema:
-        type: boolean
-      description: Required for Devices endpoints
+      name: imei
+      description: Device identifier (IMEI)
+
+    Token:
+      type: apiKey
+      in: header
+      name: token
+      description: Auth token returned by login
 
   # App1 version of the payload includes the flag
   OperadorLogin:
@@ -38,7 +42,7 @@ components:
 
 tags:
   - name: Operador
-    description: Endpoints for Application 1
+    description: Endpoints para la aplicación de operador
   - name: Barreras
     description: Endpoints for Application 2
 
@@ -193,21 +197,29 @@ paths:
         '200': { description: OK }
   /api/suscripcion:
     post:
+      tags:
+          - Operador
       summary: Create prepaid plan subscription
       responses:
         '200': { description: OK }
   /api/suscripcion/ticket_visitas:
     post:
+      tags:
+        - Operador
       summary: Create visit ticket for subscription
       responses:
         '200': { description: OK }
   /api/suscripcion/renovar:
     post:
+      tags:
+        - Operador
       summary: Renew prepaid plan subscription
       responses:
         '200': { description: OK }
   /api/obtener_suscripcion_activa_renovable:
     post:
+      tags:
+        - Operador
       summary: Fetch active renewable subscription
       responses:
         '200': { description: OK }
@@ -233,6 +245,8 @@ paths:
         '200': { description: OK }
   /api/iniciar_reembolso:
     post:
+      tags:
+        - Operador
       summary: Start reimbursement
       responses:
         '200': { description: OK }
@@ -263,6 +277,8 @@ paths:
         '200': { description: OK }
   /api/terminales/{terminalId}/logs:
     post:
+      tags:
+        - Operador
       summary: Create terminal log
       parameters:
         - in: path
@@ -272,6 +288,8 @@ paths:
       responses:
         '200': { description: OK }
     put:
+      tags:
+        - Operador
       summary: Update terminal log
       parameters:
         - in: path
@@ -291,6 +309,8 @@ paths:
         '200': { description: OK }
   /api/terminales/ubicacion:
     post:
+      tags:
+        - Operador
       summary: Update terminal location
       responses:
         '200': { description: OK }
@@ -311,16 +331,22 @@ paths:
         '200': { description: OK }
   /api/vehiculos/ingreso:
     post:
+      tags:
+        - Operador
       summary: Vehicle entry
       responses:
         '200': { description: OK }
   /api/vehiculos/salida:
     post:
+      tags:
+        - Operador
       summary: Vehicle exit
       responses:
         '200': { description: OK }
   /api/vehiculos/ingreso_rapido:
     post:
+      tags:
+        - Operador
       summary: Fast entry
       responses:
         '200': { description: OK }
@@ -359,6 +385,8 @@ paths:
         '200': { description: OK }
   /api/pagos/{paymentId}/aplicar_descuento:
     post:
+      tags:
+        - Operador
       summary: Apply discount to payment
       parameters:
         - in: path
@@ -379,6 +407,8 @@ paths:
         '200': { description: OK }
   /api/pendiente/{licensePlate}:
     get:
+      tags:
+        - Operador
       summary: Show pending ticket by license plate
       parameters:
         - in: path
@@ -388,6 +418,8 @@ paths:
       responses:
         '200': { description: OK }
     post:
+      tags:
+        - Operador
       summary: Create pending ticket by license plate
       parameters:
         - in: path
@@ -398,6 +430,8 @@ paths:
         '200': { description: OK }
   /api/vehiculos/buscar/{query}:
     get:
+      tags:
+        - Operador
       summary: Search vehicles
       parameters:
         - in: path
@@ -416,22 +450,18 @@ paths:
       tags:
         - Operador
       summary: Login Operador
-      parameters:
-        - $ref: '#/components/parameters/App1FlagHeader'
+      security:
+        - DeviceImei: []
       requestBody:
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               type: object
-              required:
-                - username
-                - password
+              required: [username, password]
               properties:
-                username:
-                  type: string
-                password:
-                  type: string
+                username: { type: string }
+                password: { type: string, format: password }
       responses:
         '200': { description: OK }
   /api/ingresar/sso:
@@ -446,11 +476,17 @@ paths:
         '200': { description: OK }
   /api/reportes/patentes_activas:
     get:
+      tags:
+        - Operador
       summary: Active license plate report
+      security:
+        - DeviceImei: []
       responses:
         '200': { description: OK }
   /api/reportes/recaudacion:
     get:
+      tags:
+        - Operador
       summary: Collections report
       responses:
         '200': { description: OK }
@@ -491,6 +527,8 @@ paths:
         '200': { description: OK }
   /api/v2/vehiculos/salida_qr/finalizar:
     post:
+      tags:
+        - Operador
       summary: Finish QR exit (v2)
       responses:
         '200': { description: OK }
