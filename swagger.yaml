@@ -8,11 +8,11 @@ info:
     está pensado como base para documentar la API en Swagger UI.
 
 servers:
-  - url: {baseURL}
+  - url: https://{baseURL}
     description: Servidor principal de la API de barreras
     variables:
       baseURL:
-        default: https://parquimetro-staging.herokuapp.com
+        default: parquimetro-staging.herokuapp.com
         description: Host base de la API (sin `/api`).
 
 components:
