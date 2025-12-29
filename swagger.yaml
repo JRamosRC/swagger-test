@@ -8,16 +8,16 @@ info:
     está pensado como base para documentar la API en Swagger UI.
 
 servers:
-  - url: https://{baseURL}
+  - url: {baseURL}
     description: Servidor principal de la API de barreras
     variables:
       baseURL:
-        default: parquimetro-staging.herokuapp.com
+        default: https://parquimetro-staging.herokuapp.com
         description: Host base de la API (sin `/api`).
 
 components:
   securitySchemes:
-    ApiKeyAuth:
+    ApiKey:
       type: apiKey
       in: header
       name: API-KEY
@@ -34,11 +34,6 @@ components:
       in: header
       name: token
       description: Auth token returned by login
-
-  # App1 version of the payload includes the flag
-  OperadorLogin:
-    allOf:
-      - $ref: '#/components/parameters/Imei'
 
 tags:
   - name: Operador
@@ -452,6 +447,7 @@ paths:
       summary: Login Operador
       security:
         - DeviceImei: []
+          ApiKey: []
       requestBody:
         required: true
         content:
@@ -481,6 +477,8 @@ paths:
       summary: Active license plate report
       security:
         - DeviceImei: []
+          TokenAuth: []
+          ApiKey: []
       responses:
         '200': { description: OK }
   /api/reportes/recaudacion:
