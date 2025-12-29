@@ -22,50 +22,19 @@ components:
       in: header
       name: API-KEY
       description: API key de autenticación.
+  parameters:
+    Imei:
+      name: imei
+      in: header
+      required: true
+      schema:
+        type: boolean
+      description: Required for Devices endpoints
 
-  schemas:
-    LoginResponse:
-      type: object
-      description: Respuesta de login de barrera.
-      properties:
-        access_token:
-          type: string
-        token_type:
-          type: string
-          nullable: true
-        expires_in:
-          type: integer
-          format: int32
-          nullable: true
-    PaymentResponse:
-      type: object
-      description: Respuesta genérica de operaciones de pago.
-      properties:
-        payment_id:
-          type: string
-    CashStatus:
-      type: object
-      properties:
-        name:
-          type: string
-        level_recycler:
-          type: string
-        level_casete:
-          type: string
-        deposit_level:
-          type: string
-        cash_type:
-          type: string
-          description: Tipo de efectivo (coin, bill, etc.)
-        value:
-          type: string
-    ServiceItem:
-      type: object
-      properties:
-        quantity:
-          type: integer
-        service_category_id:
-          type: integer
+  # App1 version of the payload includes the flag
+  OperadorLogin:
+    allOf:
+      - $ref: '#/components/parameters/Imei'
 
 tags:
   - name: Operador
@@ -447,6 +416,8 @@ paths:
       tags:
         - Operador
       summary: Login Operador
+      parameters:
+        - $ref: '#/components/parameters/App1FlagHeader'
       requestBody:
         required: true
         content:
